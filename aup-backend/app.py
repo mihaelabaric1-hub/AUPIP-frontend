@@ -25,7 +25,17 @@ with app.app_context():
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Backend radi!"})
+    artists = Artist.query.all()
+
+    return jsonify([
+        {
+            "id": a.id,
+            "name": a.name,
+            "album": a.album,
+            "year": a.year
+        }
+        for a in artists
+    ])
 
 
 
