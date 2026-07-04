@@ -6,11 +6,12 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/AUPIP-projekt/',
+
   plugins: [
     Vue({
       template: { transformAssetUrls },
     }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
       autoImport: true,
       styles: {
@@ -29,7 +30,9 @@ export default defineConfig({
       },
     }),
   ],
+
   define: { 'process.env': {} },
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('src', import.meta.url)),
@@ -44,6 +47,7 @@ export default defineConfig({
       '.vue',
     ],
   },
+
   server: {
     port: 3000,
   },
